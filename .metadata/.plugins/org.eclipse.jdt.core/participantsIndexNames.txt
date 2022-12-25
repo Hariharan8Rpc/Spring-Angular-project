@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
+E:\Spring-Angular-project\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3470947324.index
+\Patient-rest-ui\src\main\java
 E:\Spring-Angular\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3470947324.index
 \Patient-rest-ui\src\main\java

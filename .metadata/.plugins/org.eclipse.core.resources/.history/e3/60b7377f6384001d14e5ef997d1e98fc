@@ -1,0 +1,51 @@
+package com.employee.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employee.model.Employee;
+import com.employee.repository.EmployeeRepository;
+
+@RestController
+@RequestMapping("/employeeApi")
+public class EmployeeController {
+	@Autowired
+	private EmployeeRepository repo;
+	
+	@GetMapping("/getAll")
+	public List<Employee> getAllEmployees(){
+		return repo.findAll();
+	}
+	
+	@PostMapping(value="/save")
+	public Employee  save(@RequestBody Employee employee) {
+		return repo.save(employee);
+	}
+	@DeleteMapping(value="/delete/{id}")
+	public boolean delete(@PathVariable("id")long id) {
+		repo.deleteById(id);
+		return repo.existsById(id);
+	}
+	@GetMapping("/search/{keyword}")
+	public List<Employee> search(@PathVariable("keyword")String keyword){
+		return repo.findByKeyword(keyword);
+	}
+	@GetMapping("/find/{id}")
+	public Optional<Employee> findEmployee(@PathVariable("id") long id) {
+		return repo.findById(id);
+	}
+	@PutMapping("/update")
+	public Employee update(@RequestBody Employee employee) {
+		return repo.save(employee);
+	}
+}
