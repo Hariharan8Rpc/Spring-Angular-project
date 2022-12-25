@@ -1,0 +1,53 @@
+
+Å	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üäÿ€˝ˇˇˇˇH“RMINORZ
+CODE_SMELL
+z
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ÍÎÙ°˙ˇˇˇˇH”RBLOCKERZBUG
+w
+java:S4684>"@Replace this persistent entity with a simple POJO or DTO object.(©ö≠Û¯ˇˇˇˇH‘RCRITICALZVULNERABILITY
+r
+java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(è ö∑H’RCRITICALZVULNERABILITY
+f	java:S899~"BDo something with the "boolean" value returned by "createNewFile".(º‰ÎöH÷RMINORZBUG
+R
+java:S1481Ç"&Remove this unused "d" local variable.(°ñ®<H◊RMINORZ
+CODE_SMELL
+k
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(∑Óôù˘ˇˇˇˇHŸRMINORZ
+CODE_SMELL
+\
+java:S1128"0Remove this unused import 'java.nio.file.Files'.(ÇÉ¸ÅH€RMINORZ
+CODE_SMELL
+[
+java:S1128	"/Remove this unused import 'java.nio.file.Path'.(◊≤Í¬H›RMINORZ
+CODE_SMELL
+\
+java:S1128
+"0Remove this unused import 'java.nio.file.Paths'.(·Ë∞ØHﬂRMINORZ
+CODE_SMELL
+a
+java:S1128"5Remove this unused import 'java.util.logging.Logger'.(É•ÛöH·RMINORZ
+CODE_SMELL
+g
+java:S1128";Remove this unused import 'javax.servlet.ServletException'.(äâôåH„RMINORZ
+CODE_SMELL
+n
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(¯©πÖHÂRMINORZ
+CODE_SMELL
+`
+java:S1128"4Remove this unused import 'javax.servlet.http.Part'.(Ûïô¨HÁRMINORZ
+CODE_SMELL
+j
+java:S1128"9Remove this unused import 'org.hibernate.type.ImageType'.(ˆ”‡ë˛ˇˇˇˇHÈRMINORZ
+CODE_SMELL
+{
+java:S1128"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(Ï¯õêHÎRMINORZ
+CODE_SMELL
+r
+java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(„üÒ◊˙ˇˇˇˇHÌRMINORZ
+CODE_SMELL
+p
+java:S1128*"DRemove this unused import 'com.app.patient.service.IPatientService'.(·ÆÄËHÔRMINORZ
+CODE_SMELL
+x
+java:S1128-"GRemove this unused import 'ch.qos.logback.core.net.SyslogOutputStream'.(ﬁÔ˝›˚ˇˇˇˇHÒRMINORZ
+CODE_SMELL

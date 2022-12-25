@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,18 +26,21 @@ public class EmployeeController {
 		return repo.findAll();
 	}
 	
-	public Employee  save(Employee employee) {
+	@PostMapping(value="/save")
+	public Employee  save(@RequestBody Employee employee) {
 		return repo.save(employee);
 	}
-	public boolean delete(long id) {
+	@DeleteMapping(value="/delete/{id}")
+	public boolean delete(@PathVariable("id")long id) {
 		repo.deleteById(id);
 		return repo.existsById(id);
 	}
-	@GetMapping("/search")
-	public List<Employee> search(String keyword){
+	@GetMapping("/search/{keyword}")
+	public List<Employee> search(@PathVariable("keyword")String keyword){
 		return repo.findByKeyword(keyword);
 	}
-	public Optional<Employee> findEmployee(long id) {
+	@GetMapping("/find/{id}")
+	public Optional<Employee> findEmployee(@PathVariable("id") long id) {
 		return repo.findById(id);
 	}
 }
