@@ -24,12 +24,14 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository repo;
 	
-	@GetMapping("/getAll")
+//	@GetMapping("/getAll")
+	@GetMapping
 	public List<Employee> getAllEmployees(){
 		return repo.findAll();
 	}
 	
-	@PostMapping(value="/save")
+//	@PostMapping(value="/save")
+	@PostMapping
 	public Employee  save(@RequestBody Employee employee) {
 		return repo.save(employee);
 	}

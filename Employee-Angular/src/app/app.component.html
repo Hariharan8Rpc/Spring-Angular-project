@@ -1,2 +1,20 @@
-<h1 class="text-danger">hello worls{{title}}</h1>
-<p class ="text-info"> hiall</p>
+<nav class="navnbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="employee" routerLinkActive="active" class="nav-item">Employee List</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="create-employee" routerLinkActive="active" class="nav-item">Add Employee </a>
+        </li>
+    </ul>
+</nav>
+<h1 class="text-center">Employee app</h1>
+<div class="container">
+<!-- <app-employee-list> </app-employee-list> -->
+<router-outlet></router-outlet>
+</div>
+<footer class="footer">
+    <div class="container">
+        <span>hariharan</span>
+    </div>
+</footer>
