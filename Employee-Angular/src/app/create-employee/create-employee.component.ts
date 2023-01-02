@@ -12,13 +12,21 @@ export class CreateEmployeeComponent implements OnInit {
   employee: Employee=new Employee();
   constructor(private employeeService:EmployeeService,private router:Router) { }
 
+  // saveEmployee(){
+  //   this.employeeService.createEmployee(this.employee).subscribe((data)=>{
+  //     console.log(data);
+  //     this.goToEmployeeList();
+  //   },
+  //   error=>console.log(error));
+  // }
+
   saveEmployee(){
-    this.employeeService.createEmployee(this.employee).subscribe(data=>{
-      console.log(data);
-      this.goToEmployeeList();
-    },
-    error=>console.log(error));
-  }
+    this.employeeService.createEmployee(this.employee).subscribe({
+      next:(data)=>console.log(data),
+      error:(e)=>console.log(e),
+      complete:()=>this.goToEmployeeList()    
+  })
+}
 
   goToEmployeeList(){
     this.router.navigate(['employee']);
@@ -29,4 +37,6 @@ export class CreateEmployeeComponent implements OnInit {
     console.log(this.employee);
     this.saveEmployee();
     }
+
+    
   }

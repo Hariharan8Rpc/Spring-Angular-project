@@ -32,9 +32,12 @@ public class EmployeeController {
 	
 //	@PostMapping(value="/save")
 	@PostMapping
-	public Employee  save(@RequestBody Employee employee) {
-		return repo.save(employee);
+	public ResponseEntity<Employee>save(@RequestBody Employee employee) {
+		
+		return ResponseEntity.ok(repo.save(employee));
 	}
+	
+	
 	@DeleteMapping(value="/delete/{id}")
 	public boolean delete(@PathVariable("id")long id) {
 		repo.deleteById(id);

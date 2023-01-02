@@ -13,9 +13,17 @@ export class EmployeeService {
     getEmployeesList():Observable<Employee[]>{
       return this.httpClient.get<Employee[]>(`${this.url}`);
     }
-
+  
     createEmployee(employee:Employee):Observable<Object>{
       return this.httpClient.post(`${this.url}`,employee);
+   //how to add image in css? 
+    } 
+    
+    getEmployeeById(id:number):Observable<Employee>{
+      return this.httpClient.get<Employee>(`${this.url}/find/${id}`);
+    }
+    updateEmployee(id:number,employee:Employee):Observable<Object>{
+      return this.httpClient.put(`${this.url}/update/${id}`,employee);
     }
 }
 
