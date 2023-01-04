@@ -1,6 +1,8 @@
 package com.employee.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,10 +41,14 @@ public class EmployeeController {
 	
 	
 	@DeleteMapping(value="/delete/{id}")
-	public boolean delete(@PathVariable("id")long id) {
+	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id) {
+		Employee employee1=repo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee Not Exist id:"+ id));
 		repo.deleteById(id);
-		return repo.existsById(id);
+		Map<String,Boolean> response=new HashMap<>();
+		response.put("Deleted",Boolean.TRUE);
+		return ResponseEntity.ok(response);
 	}
+	
 	@GetMapping("/search/{keyword}")
 	public List<Employee> search(@PathVariable("keyword")String keyword){
 		return repo.findByKeyword(keyword);
