@@ -1,9 +1,0 @@
-
-s	java:S125B"<This block of commented-out lines of code should be removed.(Ç÷Ô‹ûÿÿÿÿ8ß‹íÔ0HüRMAJORZ
-CODE_SMELL
-o
-java:S1854-"=Remove this useless assignment to local variable "employee1".(×»‡8÷ú˜é×0HñRMAJORZ
-CODE_SMELL
-`
-java:S1481-".Remove this unused "employee1" local variable.(×»‡8÷ú˜é×0HòRMINORZ
-CODE_SMELL

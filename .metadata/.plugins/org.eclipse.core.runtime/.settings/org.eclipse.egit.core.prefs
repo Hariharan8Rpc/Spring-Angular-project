@@ -1,4 +1,4 @@
-GitRepositoriesView.GitDirectories=E\:\\spring-mini-project\\.git;
-GitRepositoriesView.GitDirectories.relative=E\:\\spring-mini-project\\.git;
+GitRepositoriesView.GitDirectories=E\:\\spring-mini-project\\.git;E\:\\Spring-Angular-project\\.git;
+GitRepositoriesView.GitDirectories.relative=E\:\\spring-mini-project\\.git;.git;
 core_autoIgnoreDerivedResources=false
 eclipse.preferences.version=1
