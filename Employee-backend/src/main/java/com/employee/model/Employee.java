@@ -1,5 +1,8 @@
 package com.employee.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
@@ -28,7 +32,16 @@ public class Employee {
 //	 joinColumns= {@JoinColumn(name="employee_id")},
 //	 inverseJoinColumns= {@JoinColumn(name="address_id")})
 	private Address address;
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Project> project=new ArrayList<>();
 	
+	
+	public List<Project> getProject() {
+		return project;
+	}
+	public void setProject(List<Project> project) {
+		this.project = project;
+	}
 	public Employee() {
 		
 	}

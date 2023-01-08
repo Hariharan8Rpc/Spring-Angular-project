@@ -38,8 +38,7 @@ public class EmployeeController {
 		
 		return ResponseEntity.ok(repo.save(employee));
 	}
-	
-	
+		
 	@DeleteMapping(value="/delete/{id}")
 	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id) {
 		Employee employee1=repo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee Not Exist id:"+ id));
@@ -53,10 +52,12 @@ public class EmployeeController {
 	public List<Employee> search(@PathVariable("keyword")String keyword){
 		return repo.findByKeyword(keyword);
 	}
+	
 	@GetMapping("/find/{id}")
 	public Optional<Employee> findEmployee(@PathVariable("id") long id) {
 		return repo.findById(id);
 	}
+	 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Employee> update(@PathVariable Long id,@RequestBody Employee employee) {
 			Employee employee1=repo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee Not Exist id:"+ id));

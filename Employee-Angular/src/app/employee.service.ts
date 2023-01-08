@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import{Observable}from 'rxjs';
-import { Employee } from './employee';
+import { Employee } from './model/employee';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,7 @@ export class EmployeeService {
     }
   
     createEmployee(employee:Employee):Observable<Object>{
-      return this.httpClient.post(`${this.url}`,employee);
-   //how to add image in css? 
+      return this.httpClient.post(`${this.url}`,employee);   
     } 
     
     getEmployeeById(id:number):Observable<Employee>{
