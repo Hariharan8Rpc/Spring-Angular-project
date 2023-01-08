@@ -21,10 +21,20 @@ public class Admin {
 	public Admin() {
 		super();
 	}
+	
 	public Admin(String admin_name) {
 		super();
 		this.admin_name = admin_name;
 	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
 	public String getAdmin_name() {
 		return admin_name;
 	}

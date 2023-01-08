@@ -1,5 +1,5 @@
-export class admin {
+export default class Admin {
     id!: number;
-    name: String | undefined;
+    admin_name: String | undefined;
     
 }

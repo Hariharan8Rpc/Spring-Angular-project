@@ -1,5 +1,8 @@
-<h3>Employee Deatils</h3>
+<h3>Employee Details</h3>
 <div >
+    <div>
+        <label> <b> Employee ID:</b> {{employee.id}}</label>
+    </div>
     <div>
         <label> <b> First Name:</b> {{employee.firstName}}</label>
     </div>
@@ -9,5 +12,49 @@
     <div>
         <label> <b> Department:</b> {{employee.department}}</label>
     </div>
-    
+</div>
+<br>
+<div>
+    <h4>Address</h4>
+    <h4 *ngIf="!employee.address" class="text-danger">Address not Present</h4>
+        <div *ngIf="employee.address">
+            <div>
+                <label> <b>ID:</b> {{employee.address.id}}</label>
+            </div>
+            <div>
+                <label> <b>State:</b> {{employee.address.state}}</label>
+            </div>
+            <div>
+                <label> <b>pincode:</b> {{employee.address.pincode}}</label>
+            </div>
+            <div>
+                <label> <b>Street:</b> {{employee.address.street}}</label>
+            </div>
+        </div>
+</div>
+
+<div>
+    <br>
+    <h4>Projects  working</h4>
+    <!-- <h6>{{employee.project.length==0}}</h6> -->
+    <h4 *ngIf="!employee.project.length" class="text-danger">No Projects Assigned</h4>
+    <!-- <div *ngif="!employee.project.length">  -->
+  <table class="table" *ngIf="employee.project.length">
+    <tr>
+        <th>Project ID</th>
+        <th>project Admin</th>
+        <th>Title</th>
+        <th>Domain</th>
+        <th>Duration</th>
+    </tr>
+    <tr *ngFor="let project of employee.project">      
+        <td>{{project.id}} </td>
+        <td>{{project.admin.admin_name}}</td>
+        <td> {{project.title}}</td>
+        <td> {{project.domain}}</td>
+        <td>{{project.duration}} months</td>
+           
+    </tr>
+</table>
+<!-- </div> -->
 </div>
