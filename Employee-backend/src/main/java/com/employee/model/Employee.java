@@ -1,15 +1,20 @@
 package com.employee.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -27,19 +32,19 @@ public class Employee {
 	@Column(name="department")
 	private String department;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-//	@JoinTable(name="address",
-//	 joinColumns= {@JoinColumn(name="employee_id")},
-//	 inverseJoinColumns= {@JoinColumn(name="address_id")})
+	@OneToOne(cascade=CascadeType.ALL,orphanRemoval=true,fetch=FetchType.LAZY)
+	@MapsId                        //updated
+	@JoinColumn(name="address_id")// updated
 	private Address address;
+	
 	@OneToMany(cascade=CascadeType.ALL)
-	private List<Project> project=new ArrayList<>();
+	private Set<Project> project=new HashSet<>();
 	
 	
-	public List<Project> getProject() {
+	public Set<Project> getProject() {
 		return project;
 	}
-	public void setProject(List<Project> project) {
+	public void setProject(Set<Project> project) {
 		this.project = project;
 	}
 	public Employee() {
@@ -50,6 +55,15 @@ public class Employee {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.department = department;
+	}
+	
+	public Employee(String firstName, String lastName, String department, Address address, Set<Project> project) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.department = department;
+		this.address = address;
+		this.project = project;
 	}
 	public long getId() {
 		return id;

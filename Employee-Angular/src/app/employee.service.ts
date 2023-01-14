@@ -8,6 +8,7 @@ import { Employee } from './model/employee';
 })
 export class EmployeeService {
   private url="http://localhost:8080/employeeApi";
+  
   constructor(private httpClient:HttpClient) { }
 
     getEmployeesList():Observable<Employee[]>{
@@ -22,11 +23,13 @@ export class EmployeeService {
       return this.httpClient.get<Employee>(`${this.url}/find/${id}`);
     }
     updateEmployee(id:number,employee:Employee):Observable<Object>{
+      console.log('inservice',employee);
       return this.httpClient.put(`${this.url}/update/${id}`,employee);
     }
     deleteEmployee(id:number):Observable<Object>{
       return this.httpClient.delete(`${this.url}/delete/${id}`);
     }
+
 }
 
 

@@ -1,23 +1,33 @@
-<h3>Employee Details</h3>
-<div >
+<!-- <h3>Employee Details</h3> -->
+<div class="container1">
+<div class="child">
     <div>
-        <label> <b> Employee ID:</b> {{employee.id}}</label>
-    </div>
-    <div>
-        <label> <b> First Name:</b> {{employee.firstName}}</label>
-    </div>
-    <div>
-        <label> <b> Last Name:</b> {{employee.lastName}}</label>
-    </div>
-    <div>
-        <label> <b> Department:</b> {{employee.department}}</label>
+        <div>
+            <label><h3>Employee Details</h3></label>
+        </div>
+        <div>
+            <label> <b> Employee ID:</b> {{employee.id}}</label>
+        </div>
+        <div>
+            <label> <b> First Name:</b> {{employee.firstName}}</label>
+        </div>
+        <div>
+            <label> <b> Last Name:</b> {{employee.lastName}}</label>
+        </div>
+        <div>
+            <label> <b> Department:</b> {{employee.department}}</label>
+        </div>
     </div>
 </div>
-<br>
-<div>
-    <h4>Address</h4>
+
+
+<div class="child">
+  
     <h4 *ngIf="!employee.address" class="text-danger">Address not Present</h4>
         <div *ngIf="employee.address">
+            <div>
+                <label><h3>Address</h3></label>
+            </div>
             <div>
                 <label> <b>ID:</b> {{employee.address.id}}</label>
             </div>
@@ -32,8 +42,9 @@
             </div>
         </div>
 </div>
-
-<div>
+</div>
+<div class="container2">
+<div class="project">
     <br>
     <h4>Projects  working</h4>
     <!-- <h6>{{employee.project.length==0}}</h6> -->
@@ -50,11 +61,12 @@
     <tr *ngFor="let project of employee.project">      
         <td>{{project.id}} </td>
         <td>{{project.admin.admin_name}}</td>
-        <td> {{project.title}}</td>
-        <td> {{project.domain}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.domain}}</td>
         <td>{{project.duration}} months</td>
            
     </tr>
 </table>
 <!-- </div> -->
+</div>
 </div>

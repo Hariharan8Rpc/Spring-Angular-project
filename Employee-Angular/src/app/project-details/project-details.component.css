@@ -1,0 +1,17 @@
+.container{
+    flex-wrap: wrap;
+    padding: 10px;
+    
+    display: flex;
+    justify-content:flex-start;
+    flex-direction: row;
+    }
+    
+    .child{    
+        border-radius: 15px;
+        padding: 10px;
+        margin: 5px;     
+        background-color: rgb(245, 177, 95);
+        min-width: 300px;
+        max-width: 500px;
+    }

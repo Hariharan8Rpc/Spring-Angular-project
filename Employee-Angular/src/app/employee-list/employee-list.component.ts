@@ -29,7 +29,6 @@ export class EmployeeListComponent implements OnInit {
   //   }
   // ]
   this.getEmployees();
-   
 }
 // private getEmployees(){
 //   this.employeeService.getEmployeesList().subscribe(data => {
@@ -41,7 +40,8 @@ export class EmployeeListComponent implements OnInit {
   private getEmployees(){
     this.employeeService.getEmployeesList().subscribe({
      next:(data)=>this.employees=data,
-     complete:() =>console.log(this.employees)
+     error:(e)=>console.log(e),
+     complete:()=>this.router.navigate(['employee'])
     });
     }
 // call to update employee through router

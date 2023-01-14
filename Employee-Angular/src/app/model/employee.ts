@@ -5,7 +5,8 @@ export class Employee {
     firstName: String | undefined;
     lastName: String | undefined;
     department: String | undefined;  
-    address!:Address; 
+    address: Address = new Address(); 
+    // address! :Address;
     project:Array<Project>=[];
  
 }

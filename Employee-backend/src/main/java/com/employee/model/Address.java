@@ -20,8 +20,7 @@ public class Address {
 	@Column(name="pincode")
 	private int pincode;
 	@Column(name="street")
-	private String street;
-	
+	private String street;	
 	
 //	@OneToOne(cascade=CascadeType.ALL)
 //	private Employee employee;
