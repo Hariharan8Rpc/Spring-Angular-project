@@ -13,6 +13,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
@@ -26,30 +27,35 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	@Column(name="first_name")
+	
 	private String firstName;
 	@Column(name="last_name")
 	private String lastName;
 	@Column(name="department")
 	private String department;
 	
-	@OneToOne(cascade=CascadeType.ALL,orphanRemoval=true,fetch=FetchType.LAZY)
+	@OneToOne(cascade=CascadeType.ALL,orphanRemoval=true,fetch=FetchType.EAGER)
 	@MapsId                        //updated
 	@JoinColumn(name="address_id")// updated
 	private Address address;
+
+	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	private List<Project> project=new ArrayList<>();
 	
-	@OneToMany(cascade=CascadeType.ALL)
-	private Set<Project> project=new HashSet<>();
 	
-	
-	public Set<Project> getProject() {
+	public List<Project> getProject() {
 		return project;
 	}
-	public void setProject(Set<Project> project) {
+	public void setProject(List<Project> project) {
 		this.project = project;
 	}
+	
+	
 	public Employee() {
-		
+		super();
 	}
+
+	
 	public Employee(String firstName, String lastName, String department) {
 		super();
 		this.firstName = firstName;
@@ -57,7 +63,7 @@ public class Employee {
 		this.department = department;
 	}
 	
-	public Employee(String firstName, String lastName, String department, Address address, Set<Project> project) {
+	public Employee(String firstName, String lastName, String department, Address address, List<Project> project) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

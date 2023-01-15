@@ -20,43 +20,33 @@
                 <label> <b> Project Admin:</b> {{project.admin.admin_name}}</label>
             </div>
         </div>
+
     </div>
-
-
-
-<!-- 
-<div>
-    <table class="table" style= "column-width: auto;">
-            <tr>
-                <th>Id</th>
-                <td>{{project.id}}</td> 
-            </tr>            
-            <tr>
-                <th>Title</th>
-                <td>{{project.title}}</td>
-            </tr>                    
-            <tr>
-                <th>Domain</th>
-                <td>{{project.domain}}</td>
+    <h2>Employee In Project</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Department</th>
+            <th colspan=2>Actions</th>
+           
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor =" let employee of employees">
+                <td>{{employee.id}}</td>
+                <td>{{employee.firstName}}</td>
+                <td>{{employee.lastName}}</td>
+                <td>{{employee.department}}</td>
+                <td>
+                    <button  class="btn btn-danger" style="margin-left: 10px;"> Remove</button>
+                </td>
             </tr>
-            <tr>
-                <th>Duration</th>
-                <td>{{project.duration}}</td>
-            </tr>            
-            <tr>
-                <th>Admin</th>
-                <td>{{project.admin.admin_name}}</td>
-            </tr>  
-            <tr colspan="3">
-                <td>
-                    <button  class="btn btn-info">view</button>
-                </td> 
-                <td>
-                    <button  class="btn btn-info">view</button>
-                </td> 
-                <td>
-                    <button  class="btn btn-info">view</button>
-                </td> 
-            </tr>                                
-    </table>    
-</div> -->
+        </tbody>
+    </table>
+
+
+
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Employee } from '../model/employee';
 import { Project } from '../model/project';
 import { ProjectServiceService } from '../project-service.service';
 
@@ -11,6 +12,7 @@ import { ProjectServiceService } from '../project-service.service';
 export class ProjectDetailsComponent implements OnInit {
   id!:number
   project!:Project;
+  employees:Employee[]|undefined;
   constructor(private route:ActivatedRoute,private projectService:ProjectServiceService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,17 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectService.getProjectById(this.id).subscribe({
       next:(data)=>this.project=data
     });
+
+    this.projectService.getEmployeesInProject(this.id).subscribe({
+      next:(data)=>this.employees=data
+    })
   }
+
+  deleteEmployeeFromProject(id:number){
+    
+  }
+
+   
+
 
 }

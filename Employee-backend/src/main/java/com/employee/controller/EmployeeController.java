@@ -38,9 +38,8 @@ public class EmployeeController {
 	@GetMapping
 	public List<Employee> getAllEmployees(){
 		return repo.findAll();
+		
 	}
-
-	
 //	@PostMapping(value="/save")
 	@PostMapping
 	public ResponseEntity<Employee>save(@RequestBody Employee employee) {
@@ -88,8 +87,8 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/employeeInProject/{id}")
-	public ResponseEntity<List<employeSql>> employeeInProject(@PathVariable long id){
-		 List<employeSql> n=repo.employeesInProject(id);
+	public ResponseEntity<List<Employee>> employeeInProject(@PathVariable long id){
+		 List<Employee> n=repo.employeesInProject(id);
 		return ResponseEntity.ok(repo.employeesInProject(id));
 	} 
 }

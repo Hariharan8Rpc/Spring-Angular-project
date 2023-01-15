@@ -74,5 +74,12 @@ public class ProjectController {
 //			Employee updatedemp=repo.save(employee1);
 		return ResponseEntity.ok(projectRepo.save(project1));
 	}
+	@PostMapping("/insertEmployees/{addrId}/{projectId}")
+	public ResponseEntity<Map<String,Boolean>> insertEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+		projectRepo.addEmployeesToProject(addrId, projectId);
+		Map<String,Boolean> response=new HashMap<>();
+		response.put("Added to Project",Boolean.TRUE);
+		return ResponseEntity.ok(response);
+	}
 	
 }
