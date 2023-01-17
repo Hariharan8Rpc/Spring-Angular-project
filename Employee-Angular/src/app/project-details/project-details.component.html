@@ -21,6 +21,12 @@
             </div>
         </div>
 
+
+    </div>
+    <div class="child1">
+        <div class="button"> 
+            <button  class="btn btn-info" style="margin-left: 10px;"> Remove</button>
+        </div>
     </div>
     <h2>Employee In Project</h2>
     <table class="table">
@@ -41,7 +47,7 @@
                 <td>{{employee.lastName}}</td>
                 <td>{{employee.department}}</td>
                 <td>
-                    <button  class="btn btn-danger" style="margin-left: 10px;"> Remove</button>
+                    <button (click)="deleteEmployeeFromProject(employee.id,project.id)"  class="btn btn-danger" style="margin-left: 10px;"> Remove</button>
                 </td>
             </tr>
         </tbody>

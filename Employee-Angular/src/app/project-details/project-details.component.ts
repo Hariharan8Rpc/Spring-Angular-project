@@ -21,15 +21,27 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectService.getProjectById(this.id).subscribe({
       next:(data)=>this.project=data
     });
+   this. getEmployeeInProject();
 
+    // this.projectService.getEmployeesInProject(this.id).subscribe({
+    //   next:(data)=>this.employees=data
+    // })
+  }
+
+  getEmployeeInProject(){
     this.projectService.getEmployeesInProject(this.id).subscribe({
       next:(data)=>this.employees=data
     })
   }
 
-  deleteEmployeeFromProject(id:number){
-    
+  deleteEmployeeFromProject(addrId:number,projectId:number){
+    this.projectService.deleteEmployeeInProject(addrId,projectId).subscribe({
+      next:(data)=>console.log(data),
+        error:(e)=>console.log(e),
+        complete:()=>this.ngOnInit()
+    })
   }
+
 
    
 

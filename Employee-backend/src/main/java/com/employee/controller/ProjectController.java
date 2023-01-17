@@ -23,6 +23,8 @@ import com.employee.model.Project;
 import com.employee.repository.EmployeeRepository;
 import com.employee.repository.ProjectRepository;
 
+import jakarta.transaction.Transactional;
+
 @RestController
 @RequestMapping("/employeeApi/project")
 public class ProjectController {
@@ -81,6 +83,21 @@ public class ProjectController {
 		Map<String,Boolean> response=new HashMap<>();
 		response.put("Added to Project",Boolean.TRUE);
 		return ResponseEntity.ok(response);
+	}
+	
+//	@DeleteMapping("/deleteEmployees/{addrId}/{projectId}")
+//	public ResponseEntity<Map<String,Boolean>> deleteEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+//		projectRepo.removeEmployeesFromProject(addrId, projectId);
+//		Map<String,Boolean> response=new HashMap<>();
+//		response.put("Added to Project",Boolean.TRUE);
+//		return ResponseEntity.ok(response);
+//	}
+	@Transactional
+	@DeleteMapping("/deleteEmployees/{addrId}/{projectId}")
+	public void deleteEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+		projectRepo.removeEmployeesFromProject(addrId, projectId);
+//		Map<String,Boolean> response=new HashMap<>();
+//		response.put("Added to Project",Boolean.TRUE);
 	}
 	
 }

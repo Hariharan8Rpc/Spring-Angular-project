@@ -23,4 +23,7 @@ export class ProjectServiceService {
     return this.httpClient.get<Employee[]>(`${this.employeeurl}/employeeInProject/${id}`);
   }
 
+  deleteEmployeeInProject(addrId:number,projectId:number):Observable<Object>{
+    return this.httpClient.delete(`${this.projectUrl}/deleteEmployees/${addrId}/${projectId}`);
+  }
 }
