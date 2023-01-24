@@ -11,7 +11,11 @@ import { UpdateEmployeeComponent } from './update-employee/update-employee.compo
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-
+import { CreateProjectComponent } from './create-project/create-project.component';
+import{MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopUpComponent } from './pop-up/pop-up.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,13 +24,18 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     UpdateEmployeeComponent,
     EmployeeDetailsComponent,
     ProjectListComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    CreateProjectComponent,
+    PopUpComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

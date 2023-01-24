@@ -1,12 +1,12 @@
 
-~	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™²åıÿÿÿÿHöRMINORZ
+g	java:S125"<This block of commented-out lines of code should be removed.(˜èHÁRMAJORZ
 CODE_SMELL
-g	java:S125"<This block of commented-out lines of code should be removed.(˜èH÷RMAJORZ
+~	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™²åıÿÿÿÿHÂRMINORZ
 CODE_SMELL
 e
-java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶HøRMINORZ
+java:S1128"9Remove this unused import 'java.util.function.Predicate'.(ïÍ–¶HÃRMINORZ
 CODE_SMELL
 †
 java:S1128
-"URemove this unused import 'springfox.documentation.builders.RequestHandlerSelectors'.(òßª¿ıÿÿÿÿHúRMINORZ
+"URemove this unused import 'springfox.documentation.builders.RequestHandlerSelectors'.(òßª¿ıÿÿÿÿHÅRMINORZ
 CODE_SMELL

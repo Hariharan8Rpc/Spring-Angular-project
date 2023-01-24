@@ -1,25 +1,47 @@
 .container{
     flex-wrap: wrap;
     padding: 10px;
-    
     display: flex;
     justify-content:flex-start;
     flex-direction: row;
     }
     
     .child{    
+
+        flex-wrap: wrap;
+        padding: 10px;
+        display: flex;
+        justify-content:flex-start;
+        flex-direction: row;
+
         border-radius: 15px;
         padding: 10px;
         margin: 5px;     
         background-color: rgb(245, 177, 95);
         min-width: 300px;
-        max-width: 500px;
+        max-width: 450px;
     }
-    .child1{    
+    .child1{  
+        /* float:right;   */
         border-radius: 15px;
         padding: 10px;
-        margin: 5px;     
-        background-color: rgb(33, 233, 133);
-        min-width: 300px;
         max-width: 500px;
+        min-width: 250px;
+        margin: 5px; 
+        margin-right: 0px;    
+        /* background-color: rgb(33, 233, 133); */
+        /* min-width: 75px;
+        max-width: 75px; */
+    }
+    .child2{
+        padding: 10px;
+        /* background-color: rgb(33, 233, 133); */
+        float:right;
+        max-width: 400px;
+    }
+    .button{
+        padding-bottom: 10px;
+    }
+    .fullscreen-dialog{
+        max-width: 100% !important;
     }

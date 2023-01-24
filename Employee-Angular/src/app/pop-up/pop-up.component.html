@@ -1,0 +1,30 @@
+<h2> Add Employees To Project</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Department</th>
+            <th colspan=2>Actions</th>               
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor =" let employee of employees1">
+                <td>{{employee.id}}</td>
+                <td>{{employee.firstName}}</td>            
+                <td>{{employee.department}}</td>
+                <td>
+                    <button (click)="addEmployeestoProject(employee.id)" class="btn btn-danger" style="margin-left: 10px;"> ADD</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- <ng-template #dialogRef let-mydata>  
+    <ul *nfIf="mydata">
+        <li ng*For="let e of mydata">
+            {{mydata}}
+        </li>
+    </ul>
+    <button mat-button mat-dialog-close="Employees added to Project">Close</button>
+</ng-template> -->

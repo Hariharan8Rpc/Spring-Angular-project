@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.employee.exception.ResourceNotFoundException;
+import com.employee.model.Admin;
 import com.employee.model.Employee;
 import com.employee.model.Project;
+import com.employee.repository.AdminRepository;
 import com.employee.repository.EmployeeRepository;
 import com.employee.repository.ProjectRepository;
 
@@ -34,9 +36,21 @@ public class ProjectController {
 	@Autowired
 	private ProjectRepository projectRepo;
 		
-	@PostMapping(value="/addProject")
-	public ResponseEntity<Project> AddProject(@RequestBody Project project) {
-		return ResponseEntity.ok(projectRepo.save(project));
+	@Autowired
+	private AdminRepository adminRepo;
+	
+	@PostMapping(value="/addProject/{id}")
+	public ResponseEntity<Project> AddProject(@PathVariable("id")long id,@RequestBody Project project) {
+		Project project1=new Project();
+		Admin admin1=new Admin();
+		admin1=adminRepo.getReferenceById(id);
+//		admin1.setId(id);
+		project1=project;
+		project1.setAdmin(admin1);
+		
+//		project1.setAdmin(admin1);
+//		System.out.println(admin1);
+		return ResponseEntity.ok(projectRepo.save(project1));
 	}
 	
 	@GetMapping("/getproject")
@@ -78,11 +92,12 @@ public class ProjectController {
 	}
 	
 	@PostMapping("/insertEmployees/{addrId}/{projectId}")
-	public ResponseEntity<Map<String,Boolean>> insertEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+	public void insertEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+		System.out.println(addrId+ " "+projectId);
 		projectRepo.addEmployeesToProject(addrId, projectId);
-		Map<String,Boolean> response=new HashMap<>();
-		response.put("Added to Project",Boolean.TRUE);
-		return ResponseEntity.ok(response);
+//		Map<String,Boolean> response=new HashMap<>();
+//		response.put("Added to Project",Boolean.TRUE);
+//		return ResponseEntity.ok(response);
 	}
 	
 //	@DeleteMapping("/deleteEmployees/{addrId}/{projectId}")

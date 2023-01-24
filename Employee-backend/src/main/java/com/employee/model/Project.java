@@ -51,13 +51,15 @@ public class Project {
 	public Project() {
 		super();
 	}
-	public Project(String title, String domain, int duration) {
+
+	
+	public Project(String title, String domain, int duration, Admin admin) {
 		super();
 		this.title = title;
 		this.domain = domain;
 		this.duration = duration;
+		this.admin = admin;
 	}
-	
 	public long getId() {
 		return id;
 	}

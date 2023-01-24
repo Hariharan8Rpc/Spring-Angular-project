@@ -1,21 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ActivatedRoute, Router } from '@angular/router';
+import { EmployeeService } from '../employee.service';
 import { Employee } from '../model/employee';
 import { Project } from '../model/project';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 import { ProjectServiceService } from '../project-service.service';
+import { routerTransition } from '../router.animation';
 
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.component.html',
-  styleUrls: ['./project-details.component.css']
+  styleUrls: ['./project-details.component.css'],
+  // animations: [routerTransition()] 
 })
 export class ProjectDetailsComponent implements OnInit {
   id!:number
   project!:Project;
   employees:Employee[]|undefined;
-  constructor(private route:ActivatedRoute,private projectService:ProjectServiceService) { }
-
+  employees1:Employee[]|undefined;
+  fromDialog!:String;
+  
+  
+  constructor(private route:ActivatedRoute,private router:Router,private projectService:ProjectServiceService,private employeeService:EmployeeService,public dialog:MatDialog) { }
+  mylist=['keyboard','derrvrwftd3','vrcdar4df34',1321]
   ngOnInit(): void {
+    this.fromDialog="Employees List to Add...";
+
     this.id=this.route.snapshot.params['id'];
     this.project=new Project();
     this.projectService.getProjectById(this.id).subscribe({
@@ -41,9 +52,32 @@ export class ProjectDetailsComponent implements OnInit {
         complete:()=>this.ngOnInit()
     })
   }
+  
+  getAllEmployees(){
+    this.employeeService.getEmployeesList().subscribe({
+      next:(data)=>this.employees=data,
+      error:(e)=>console.log(e),
+     });
+  }
 
+  addEmployeestoProject(addrId:number,projectId:number){
+    this.projectService.addEmployeeToProject(addrId,projectId).subscribe({
+      next:(data)=>console.log(data),
+        error:(e)=>console.log(e),
+        // complete:()=>this.ngOnInit()
+    })
+  }
 
-   
+  openDialog(){
+    this.dialog.open(PopUpComponent);
+  }
+
+  employeesProject(id:number){
+    this.router.navigate(['addEmployeeToProject',id]);
+  }
+  updateProject(id:number){
+    this.router.navigate(['updateProject',this.id]);
+  }
 
 
 }
