@@ -12,13 +12,12 @@ import { ProjectServiceService } from '../project-service.service';
 export class CreateProjectComponent implements OnInit {
 project: Project=new Project();
 // admin: Admin=new Admin();
-id! :number;
-
+  adminid: number=1;
   constructor(private projectService:ProjectServiceService, private router:Router) { }
    
   saveProject(){
     // this.project.admin.id=
-    this.projectService.createProject(this.id,this.project).subscribe({
+    this.projectService.createProject(this.adminid,this.project).subscribe({
       next:(data)=>console.log(this.project),
       error:(e)=>console.log(e),
       complete:()=>this.goToProjectList()    

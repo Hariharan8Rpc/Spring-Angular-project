@@ -28,7 +28,7 @@ public class Project {
 	@Column(name="duration")
 	private int duration;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.DETACH ,fetch=FetchType.LAZY)
 	@JoinColumn(name="admin_id")
 	private Admin admin;	
 	

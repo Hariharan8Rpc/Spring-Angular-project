@@ -78,6 +78,12 @@ export class ProjectDetailsComponent implements OnInit {
   updateProject(id:number){
     this.router.navigate(['updateProject',this.id]);
   }
-
+  deleteProject(id:number){
+    this.projectService.deleteProject(id).subscribe({
+      next:(data)=>console.log(data),
+      error:(e)=>console.log(e),
+      complete:()=> this.router.navigate(['project'])
+    })
+  }
 
 }

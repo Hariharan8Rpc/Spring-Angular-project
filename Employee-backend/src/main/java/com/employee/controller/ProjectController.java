@@ -61,7 +61,7 @@ public class ProjectController {
 	@DeleteMapping(value="/delete/{id}")
 	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id){
 		Project project=projectRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Project Not Found"));
-		projectRepo.deleteById(id);
+		projectRepo.removeProject(id);
 		Map<String,Boolean> response=new HashMap<>();
 		response.put("Project Deleted",Boolean.TRUE);
 		return ResponseEntity.ok(response);
@@ -86,7 +86,15 @@ public class ProjectController {
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Project> update(@PathVariable Long id,@RequestBody Project project) {
 		Project project1=projectRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Project Not Found"));
-			
+		project1.setTitle(project.getTitle());
+		project1.setDomain(project.getDomain());
+		project1.setDuration(project.getDuration());
+		
+		Admin admin1=new Admin();
+		admin1=adminRepo.getReferenceById(project.getAdmin().getId());
+		project1.setAdmin(project1.getAdmin());
+		
+		
 //			Employee updatedemp=repo.save(employee1);
 		return ResponseEntity.ok(projectRepo.save(project1));
 	}

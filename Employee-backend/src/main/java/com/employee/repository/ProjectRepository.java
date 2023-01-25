@@ -25,5 +25,8 @@ public interface ProjectRepository extends JpaRepository<Project,Long>{
 	@Query(value="DELETE FROM employee_project \r\n"
 			+ "WHERE employee_project.project_id =:projectId AND employee_project.employee_address_id=:addrId",nativeQuery=true)
 	public void removeEmployeesFromProject(Long addrId,Long projectId);
-	
+	@Transactional
+	@Modifying
+	@Query(value="delete from project where id=:projectId ",nativeQuery=true)
+	public void removeProject(Long projectId);
 }

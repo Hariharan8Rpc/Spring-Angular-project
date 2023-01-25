@@ -32,9 +32,16 @@ export class ProjectServiceService {
   deleteEmployeeInProject(addrId:number,projectId:number):Observable<Object>{
     return this.httpClient.delete(`${this.projectUrl}/deleteEmployees/${addrId}/${projectId}`);
   }
+  deleteProject(projectId:number):Observable<Object>{
+    return this.httpClient.delete(`${this.projectUrl}/delete/${projectId}`);
+  }
 
   addEmployeeToProject(addrId:number,projectId:number):Observable<Object>{
     return this.httpClient.post(`${this.projectUrl}/insertEmployees/${addrId}/${projectId}`,null);
   } 
 
+  updateProject(projectid:number,project:Project):Observable<Object>{
+    console.log('inservice',project);
+    return this.httpClient.put(`${this.projectUrl}/update/${projectid}`,project);
+  }
 }

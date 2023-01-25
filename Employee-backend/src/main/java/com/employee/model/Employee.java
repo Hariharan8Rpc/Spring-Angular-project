@@ -39,7 +39,7 @@ public class Employee {
 	@JoinColumn(name="address_id")// updated
 	private Address address;
 
-	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
+	@ManyToMany(cascade=CascadeType.DETACH,fetch=FetchType.EAGER)
 	private List<Project> project=new ArrayList<>();
 	
 	

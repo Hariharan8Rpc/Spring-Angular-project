@@ -1,25 +1,36 @@
 <div class="col-md-6 offset-md-3" >
     <h3>Create Project</h3>
-<form (ngSubmit)="onSubmit()">
-    <!-- <form {ngSubmit}="onSubmit()"></form> -->
+<form (ngSubmit)="onSubmit()"ngNativeValidate>    
     <div class="form-group">
         <label>Title</label>
-        <input type="text" class="form-control" id="Title" [(ngModel)]="project.title" name="Project Title">
+        <input type="text" class="form-control" id="Title" [(ngModel)]="project.title" name="title"
+            required #title="ngModel" minlength="4" placeholder="Enter project title"
+            ngModel [class.is-invalid]="title.invalid && title.touched"   >
+        <small  class="text-danger" *ngIf="title.touched && title.invalid "> Title should be more than 4 characters</small>
     </div>
 
     <div class="form-group">
         <label>Domain</label>
-        <input type="text" class="form-control" id="domain" [(ngModel)]="project.domain" name="domain">
+        <input type="text" class="form-control" id="domain" [(ngModel)]="project.domain" name="domain"
+        required #domain="ngModel" minlength="4"maxlength="15" placeholder="Enter project Domain"
+        ngModel [class.is-invalid]="domain.invalid && domain.touched">
+        <small  class="text-danger" *ngIf="domain.touched && domain.invalid ">Domain name should be more than 4 charcters</small>
     </div>
 
     <div class="form-group">
         <label>Duration</label>
-        <input type="number" class="form-control" id="duration" [(ngModel)]="project.duration" name="Duration">
+        <input type="number" class="form-control" id="duration" [(ngModel)]="project.duration" name="Duration"
+        required #Duration="ngModel" placeholder="Enter project Duration in months"
+        ngModel [class.is-invalid]="Duration.invalid && Duration.touched">
+        <small  class="text-danger" *ngIf="Duration.touched && Duration.invalid ">Enter duration in terms of months</small>
     </div>
 
     <div class="form-group">
         <label>Admin</label>
-        <input type="number" class="form-control" id="admin" [(ngModel)]="id" name="id">
+        <input type="number" class="form-control" id="admin" (ngModel)="adminid" name="adminid"
+         required #adminid="ngModel" placeholder="Enter Id Of Admin"
+        ngModel [class.is-invalid]="adminid.invalid && adminid.touched">
+        <small  class="text-danger" *ngIf="adminid.touched && adminid.invalid ">Enter id of Admin</small>
     </div>
 
     <button class="btn btn-success" type="submit">submit</button>

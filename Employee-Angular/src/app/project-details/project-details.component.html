@@ -10,13 +10,7 @@
                 <div>
                     <label> <b> Title:</b> {{project.title}}</label>
                 </div>
-
-                <!-- <div class="child1">
-                    <div class="button"> 
-                        <button  class="btn btn-info" style="margin-left: 10px;"> ADD</button>
-                    </div>
-                </div> -->
-
+                
                 <div>
                     <label> <b> Domain:</b> {{project.domain}}</label>
                 </div>
@@ -36,6 +30,11 @@
                 <div class="button"> 
                     
                     <button  class="btn btn-info" style="margin-left: 10px;" (click)="updateProject(project.id)">Edit</button>
+                </div>
+
+                <div class="button"> 
+                    
+                    <button  class="btn btn-danger" style="margin-left: 10px;" (click)="deleteProject(project.id)">Delete</button>
                 </div>
             </div>
     </div>

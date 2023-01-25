@@ -1,35 +1,63 @@
 <div class="col-md-6 offset-md-3" >
     <h3>Update Employee</h3>
-<form (ngSubmit)="onSubmit()">
-    <!-- <form {ngSubmit}="onSubmit()"></form> -->
-    <div class="form-group">
-        <label>Firstname</label>
-        <input type="text" class="form-control" id="firstName" [(ngModel)]="employee.firstName" name="firstname">
-    </div>
+    <form (ngSubmit)="onSubmit()" ngNativeValidate>
+        <div class="form-group">
+            <label>Firstname</label>
+            <input type="text" id="firstname" [(ngModel)]="employee.firstName" name="firstname"
+            #firstname="ngModel"   minlength="4" required placeholder="Enter the name " title="Name cannot be left blank" 
+            ngModel class="form-control" [class.is-invalid]="firstname.invalid && firstname.touched"          >
+            <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+            <small  class="text-danger" *ngIf="firstname.touched && firstname.invalid "> First Name Length should be more than 4 character </small>
+        </div>
+    
+        <div class="form-group">
+            <label>Lasttname</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName" name="lasttname"
+            #lastname="ngModel"   minlength="4" required placeholder="Enter the Last name "
+            ngModel class="form-control" [class.is-invalid]="lastname.invalid && lastname.touched"          >
+            <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+            <small  class="text-danger" *ngIf="lastname.touched && lastname.invalid "> Last Name Length should be more than 4 character </small>
+        </div>
+    
+        <div class="form-group">
+            <label>Department</label>
+            <input type="text" class="form-control" id="department" [(ngModel)]="employee.department" name="department"
+            #department="ngModel"   minlength="4" required placeholder="Enter the Department name " 
+            ngModel class="form-control" [class.is-invalid]="department.invalid && department.touched"          >
+            <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+            <small  class="text-danger" *ngIf="department.touched && department.invalid "> Department Length should be more than 2 character </small>
+        </div>
+    
 
-    <div class="form-group">
-        <label>Lasttname</label>
-        <input type="text" class="form-control" id="lastName" [(ngModel)]="employee.lastName" name="lastname">
-    </div>
 
-    <div class="form-group">
-        <label>Department</label>
-        <input type="text" class="form-control" id="department" [(ngModel)]="employee.department" name="firstname">
-    </div>
+
+
     <h2>Address</h2>
     <div class="form-group">
         <label>State</label>
-        <input type="text" class="form-control" id="State" [(ngModel)]="employee.address.state" name="state">
+        <input type="text" class="form-control" id="State" [(ngModel)]="employee.address.state" name="state"
+        #state="ngModel"   minlength="4" required placeholder="Enter the State " 
+        ngModel class="form-control" [class.is-invalid]="state.invalid && state.touched"          >
+        <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+        <small  class="text-danger" *ngIf="state.touched && state.invalid ">Enter the state name</small>
     </div>
 
     <div class="form-group">
         <label>Pincode</label>
-        <input type="text" class="form-control" id="pincode" [(ngModel)]="employee.address.pincode" name="pincode">
+        <input type="number" class="form-control" id="pincode" [(ngModel)]="employee.address.pincode" name="pincode"
+        #pincode="ngModel"   minlength="6"  maxlength="7"required placeholder="Enter the Pincode " 
+        ngModel class="form-control" [class.is-invalid]="pincode.invalid && pincode.touched"          >
+        <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+        <small  class="text-danger" *ngIf="pincode.touched && pincode.invalid ">Enter the Pincode</small>
     </div>
 
     <div class="form-group">
         <label>Street</label>
-        <input type="text" class="form-control" id="street" [(ngModel)]="employee.address.street" name="street">
+        <input type="text" class="form-control" id="street" [(ngModel)]="employee.address.street" name="street"
+        #street="ngModel"   minlength="6" maxlength="10"required placeholder="Enter the Street Name " 
+        ngModel class="form-control" [class.is-invalid]="street.invalid && street.touched"          >
+        <!-- <small  class="text-danger" *ngIf="firstname.touched"> First Name cannot be left blank </small> -->
+        <small  class="text-danger" *ngIf="street.touched && street.invalid ">Enter the Street Name</small>
     </div>
     <button class="btn btn-success" type="submit">Update</button>
 </form>
