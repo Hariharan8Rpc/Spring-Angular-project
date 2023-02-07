@@ -2,13 +2,14 @@
 <div class="parent">  
 <div class="child">
     <h2>Projects List</h2>
+     <h4 *ngIf="!projects" class="text-danger">No Projects Available</h4>
 </div>
-<div class="child">
+<div  *ngIf="projects"class="child">
 </div>
 </div>
 
 
-<table class="table">
+<table *ngIf="projects" class="table">
     <thead>
         <tr>
             <th>Id</th>

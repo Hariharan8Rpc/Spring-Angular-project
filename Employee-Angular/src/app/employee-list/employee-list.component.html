@@ -1,5 +1,8 @@
 <h2>Employee List</h2>
-<table class="table">
+<br>
+    <!-- <h6>{{employee.project.length==0}}</h6> -->
+    <h4 *ngIf="!employees" class="text-danger">No Employees Present</h4>
+<table *ngIf="employees" class="table">
     <thead>
     <tr>
         <th>Id</th>

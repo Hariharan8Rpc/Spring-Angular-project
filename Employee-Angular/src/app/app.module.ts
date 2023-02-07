@@ -16,6 +16,8 @@ import{MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopUpComponent } from './pop-up/pop-up.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,9 @@ import { EditProjectComponent } from './edit-project/edit-project.component';
     ProjectDetailsComponent,
     CreateProjectComponent,
     PopUpComponent,
-    EditProjectComponent
+    EditProjectComponent,
+    HomepageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
