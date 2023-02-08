@@ -1,8 +1,4 @@
 INDEX VERSION 1.4+E:\Spring-Angular-project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-721747340.index
-1017310622.index
-2326973019.index
-352126714.index
+2442971748.index
 3724411451.index
 835710218.index
-2442025350.index
