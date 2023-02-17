@@ -1,53 +1,53 @@
 
-	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸŠØÛýÿÿÿÿHÒRMINORZ
+[
+java:S1128	"/Remove this unused import 'java.nio.file.Path'.(×²êÂHÍMRMINORZ
 CODE_SMELL
-z
-java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(êëô¡úÿÿÿÿHÓRBLOCKERZBUG
 w
-java:S4684>"@Replace this persistent entity with a simple POJO or DTO object.(©š­óøÿÿÿÿHÔRCRITICALZVULNERABILITY
-r
-java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(Êš·HÕRCRITICALZVULNERABILITY
-f	java:S899~"BDo something with the "boolean" value returned by "createNewFile".(¼äëšHÖRMINORZBUG
+java:S4684>"@Replace this persistent entity with a simple POJO or DTO object.(©š­óøÿÿÿÿHÏMRCRITICALZVULNERABILITY
 R
-java:S1481‚"&Remove this unused "d" local variable.(¡–¨<H×RMINORZ
-CODE_SMELL
-k
-java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿHÙRMINORZ
+java:S1481‚"&Remove this unused "d" local variable.(¡–¨<HÐMRMINORZ
 CODE_SMELL
 \
-java:S1128"0Remove this unused import 'java.nio.file.Files'.(‚ƒüHÛRMINORZ
+java:S1128"0Remove this unused import 'java.nio.file.Files'.(‚ƒüHÒMRMINORZ
 CODE_SMELL
-[
-java:S1128	"/Remove this unused import 'java.nio.file.Path'.(×²êÂHÝRMINORZ
+`
+java:S1128"4Remove this unused import 'javax.servlet.http.Part'.(ó•™¬HÔMRMINORZ
+CODE_SMELL
+p
+java:S1128*"DRemove this unused import 'com.app.patient.service.IPatientService'.(á®€èHÖMRMINORZ
+CODE_SMELL
+g
+java:S1128";Remove this unused import 'javax.servlet.ServletException'.(Š‰™ŒHØMRMINORZ
 CODE_SMELL
 \
 java:S1128
-"0Remove this unused import 'java.nio.file.Paths'.(áè°¯HßRMINORZ
-CODE_SMELL
-a
-java:S1128"5Remove this unused import 'java.util.logging.Logger'.(ƒ¥óšHáRMINORZ
-CODE_SMELL
-g
-java:S1128";Remove this unused import 'javax.servlet.ServletException'.(Š‰™ŒHãRMINORZ
-CODE_SMELL
-n
-java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…HåRMINORZ
-CODE_SMELL
-`
-java:S1128"4Remove this unused import 'javax.servlet.http.Part'.(ó•™¬HçRMINORZ
-CODE_SMELL
-j
-java:S1128"9Remove this unused import 'org.hibernate.type.ImageType'.(öÓà‘þÿÿÿÿHéRMINORZ
+"0Remove this unused import 'java.nio.file.Paths'.(áè°¯HÚMRMINORZ
 CODE_SMELL
 {
-java:S1128"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›HëRMINORZ
+java:S1128"ORemove this unused import 'org.springframework.beans.factory.annotation.Value'.(ìø›HÜMRMINORZ
 CODE_SMELL
 r
-java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿHíRMINORZ
+java:S1128"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿHÞMRMINORZ
 CODE_SMELL
-p
-java:S1128*"DRemove this unused import 'com.app.patient.service.IPatientService'.(á®€èHïRMINORZ
+f	java:S899~"BDo something with the "boolean" value returned by "createNewFile".(¼äëšHàMRMINORZBUG
+a
+java:S1128"5Remove this unused import 'java.util.logging.Logger'.(ƒ¥óšHáMRMINORZ
 CODE_SMELL
 x
-java:S1128-"GRemove this unused import 'ch.qos.logback.core.net.SyslogOutputStream'.(ÞïýÝûÿÿÿÿHñRMINORZ
+java:S1128-"GRemove this unused import 'ch.qos.logback.core.net.SyslogOutputStream'.(ÞïýÝûÿÿÿÿHãMRMINORZ
+CODE_SMELL
+z
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(êëô¡úÿÿÿÿHåMRBLOCKERZBUG
+k
+java:S1128":Remove this unused import 'java.io.FileNotFoundException'.(·î™ùÿÿÿÿHæMRMINORZ
+CODE_SMELL
+n
+java:S1128"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…HèMRMINORZ
+CODE_SMELL
+j
+java:S1128"9Remove this unused import 'org.hibernate.type.ImageType'.(öÓà‘þÿÿÿÿHêMRMINORZ
+CODE_SMELL
+r
+java:S4684m"@Replace this persistent entity with a simple POJO or DTO object.(Êš·HìMRCRITICALZVULNERABILITY
+	java:S117y"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸŠØÛýÿÿÿÿHíMRMINORZ
 CODE_SMELL

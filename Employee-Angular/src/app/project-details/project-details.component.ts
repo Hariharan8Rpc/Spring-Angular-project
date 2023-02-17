@@ -17,23 +17,22 @@ import { routerTransition } from '../router.animation';
 export class ProjectDetailsComponent implements OnInit {
   id!:number
   project!:Project;
-  employees:Employee[]|undefined;
+  employees!:Employee[];
   employees1:Employee[]|undefined;
   fromDialog!:String;
   
   
   constructor(private route:ActivatedRoute,private router:Router,private projectService:ProjectServiceService,private employeeService:EmployeeService,public dialog:MatDialog) { }
-  mylist=['keyboard','derrvrwftd3','vrcdar4df34',1321]
+  
   ngOnInit(): void {
-    this.fromDialog="Employees List to Add...";
-
     this.id=this.route.snapshot.params['id'];
     this.project=new Project();
     this.projectService.getProjectById(this.id).subscribe({
       next:(data)=>this.project=data
     });
    this. getEmployeeInProject();
-
+  
+    
     // this.projectService.getEmployeesInProject(this.id).subscribe({
     //   next:(data)=>this.employees=data
     // })
@@ -43,6 +42,8 @@ export class ProjectDetailsComponent implements OnInit {
     this.projectService.getEmployeesInProject(this.id).subscribe({
       next:(data)=>this.employees=data
     })
+
+     console.log(this.employees)
   }
 
   deleteEmployeeFromProject(addrId:number,projectId:number){

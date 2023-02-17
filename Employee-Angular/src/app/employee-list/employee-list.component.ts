@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../model/employee';
 import { EmployeeService } from '../employee.service';
@@ -8,53 +8,65 @@ import { EmployeeService } from '../employee.service';
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
-export class EmployeeListComponent implements OnInit {
+export class EmployeeListComponent implements OnInit ,OnDestroy{
+   
+  employees:Employee[]|undefined; 
+  currentEmployeeList!: Employee;
+  errorMessage!: string;
+  // currentIndex = -1;
+  // title = '';
 
-  employees:Employee[] | undefined;
+  // page = 1;
+  // count = 0;
+  // pageSize = 3;
+  // pageSizes = [3, 6, 9];
   constructor(private employeeService:EmployeeService,
-    private router:Router) { }
-  
+  private router:Router) { }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
+     error!:String
+
   ngOnInit(): void {
-  //   this.employees=[{
-  //     "id":1,
-  //     "firstName":"hari",
-  //     "lastName":"haran",
-  //     "department":"sales"
-  //   },
-  //   {
-  //     "id":2,
-  //     "firstName":"cfhari",
-  //     "lastName":"haran",
-  //     "department":"sales"
-  //   }
-  // ]
+
   this.getEmployees();
 }
-// private getEmployees(){
-//   this.employeeService.getEmployeesList().subscribe(data => {
-//     this.employees=data;
-//     console.log(this.employees);
-//   });
-//   }
+
+  // private getEmployees(){
+  //   this.employeeService.getEmployeesList().subscribe({
+  //    next:(data)=>this.employees=data,
+  //    error:(e)=>console.log(e),
+  //   //  complete:()=>this.router.navigate(['employee'])
+  //   });
+  //   }
 
   private getEmployees(){
-    this.employeeService.getEmployeesList().subscribe({
-     next:(data)=>this.employees=data,
-     error:(e)=>console.log(e),
-     complete:()=>this.router.navigate(['employee'])
+    this.employeeService.getEmployeesList().subscribe((data)=>{
+    this.employees=data;
+    },(err)=>{
+      this.errorMessage=err.message;
     });
-    }
+  }
+
 // call to update employee through router
      updateEmployee(id:number){
       this.router.navigate(['update-employee',id]);
     }
 
     deleteEmployee(id:number){
-      this.employeeService.deleteEmployee(id).subscribe({
-        next:(data)=>console.log(data),
-        error:(e)=>console.log(e),
-        complete:()=>this.getEmployees()
-      })
+      // this.employeeService.deleteEmployee(id).subscribe({
+      //   next:(data)=>console.log(data),
+      //   // error:(e)=>console.log(e),
+      //   complete:()=>this.getEmployees()
+      // },(err)=>{
+      //   this.errorMessage=err.message;
+      // });
+      this.employeeService.deleteEmployee(id).subscribe(()=>{
+      this.getEmployees()
+      },(err)=>{
+        this.errorMessage=err.message;
+      });
+      
     }
 
     employeeDetails(id:number){

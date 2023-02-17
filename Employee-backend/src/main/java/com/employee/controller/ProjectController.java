@@ -24,6 +24,7 @@ import com.employee.model.Project;
 import com.employee.repository.AdminRepository;
 import com.employee.repository.EmployeeRepository;
 import com.employee.repository.ProjectRepository;
+import com.employee.service.ProjectServiceImpl;
 
 import jakarta.transaction.Transactional;
 
@@ -31,96 +32,42 @@ import jakarta.transaction.Transactional;
 @RequestMapping("/employeeApi/project")
 public class ProjectController {
 	@Autowired
-	private EmployeeRepository empRepo;
-
-	@Autowired
-	private ProjectRepository projectRepo;
-		
-	@Autowired
-	private AdminRepository adminRepo;
-	
+	private ProjectServiceImpl projectService;
 	@PostMapping(value="/addProject/{id}")
 	public ResponseEntity<Project> AddProject(@PathVariable("id")long id,@RequestBody Project project) {
-		Project project1=new Project();
-		Admin admin1=new Admin();
-		admin1=adminRepo.getReferenceById(id);
-//		admin1.setId(id);
-		project1=project;
-		project1.setAdmin(admin1);
 		
-//		project1.setAdmin(admin1);
-//		System.out.println(admin1);
-		return ResponseEntity.ok(projectRepo.save(project1));
+		return projectService.AddProject(id, project);
 	}
 	
 	@GetMapping("/getproject")
 	public List<Project> getAllProject(){
-		return projectRepo.findAll();
+		return projectService.getAllProject();
 	}
 	
 	@DeleteMapping(value="/delete/{id}")
 	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id){
-		Project project=projectRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Project Not Found"));
-		projectRepo.removeProject(id);
-		Map<String,Boolean> response=new HashMap<>();
-		response.put("Project Deleted",Boolean.TRUE);
-		return ResponseEntity.ok(response);
+	
+		return projectService.delete(id);
 	}
 	@GetMapping("/find/{id}")
-	public Optional<Project> findProject(@PathVariable("id") long id) {
-		return projectRepo.findById(id);
+	public ResponseEntity<Project> findProject(@PathVariable("id") long id) {
+		return projectService.findProject(id);
 	}
-	
-//	@GetMapping("/employees")
-//	public ResponseEntity<Employee> projectEmployees() {
-//		List<Employee> employee=new ArrayList<>();
-//		
-//		employee=empRepo.
-//		Project project1=projectRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Project Not Found"));		
-//	
-//		
-//		return ResponseEntity.ok(projectRepo.save(project1));
-//	}
-	
-	
+		
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Project> update(@PathVariable Long id,@RequestBody Project project) {
-		Project project1=projectRepo.findById(id).orElseThrow(()->new ResourceNotFoundException("Project Not Found"));
-		project1.setTitle(project.getTitle());
-		project1.setDomain(project.getDomain());
-		project1.setDuration(project.getDuration());
-		
-		Admin admin1=new Admin();
-		admin1=adminRepo.getReferenceById(project.getAdmin().getId());
-		project1.setAdmin(project1.getAdmin());
-		
-		
-//			Employee updatedemp=repo.save(employee1);
-		return ResponseEntity.ok(projectRepo.save(project1));
+	public ResponseEntity<Project> update(@PathVariable Long id,@RequestBody Project project) {		
+		return projectService.update(id, project);
 	}
 	
 	@PostMapping("/insertEmployees/{addrId}/{projectId}")
-	public void insertEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
-		System.out.println(addrId+ " "+projectId);
-		projectRepo.addEmployeesToProject(addrId, projectId);
-//		Map<String,Boolean> response=new HashMap<>();
-//		response.put("Added to Project",Boolean.TRUE);
-//		return ResponseEntity.ok(response);
+	public ResponseEntity<Map<String, Boolean>> insertEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+		return projectService.insertEmployees(addrId, projectId);
 	}
-	
-//	@DeleteMapping("/deleteEmployees/{addrId}/{projectId}")
-//	public ResponseEntity<Map<String,Boolean>> deleteEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
-//		projectRepo.removeEmployeesFromProject(addrId, projectId);
-//		Map<String,Boolean> response=new HashMap<>();
-//		response.put("Added to Project",Boolean.TRUE);
-//		return ResponseEntity.ok(response);
-//	}
+		
 	@Transactional
 	@DeleteMapping("/deleteEmployees/{addrId}/{projectId}")
-	public void deleteEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
-		projectRepo.removeEmployeesFromProject(addrId, projectId);
-//		Map<String,Boolean> response=new HashMap<>();
-//		response.put("Added to Project",Boolean.TRUE);
+	public ResponseEntity<Map<String, Boolean>> deleteEmployees(@PathVariable Long addrId,@PathVariable Long projectId) {
+		return projectService.deleteEmployees(addrId, projectId);
 	}
 	
 }

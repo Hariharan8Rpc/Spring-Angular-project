@@ -34,7 +34,7 @@
 
                 <div class="button"> 
                     
-                    <button  class="btn btn-danger" style="margin-left: 10px;" (click)="deleteProject(project.id)">Delete</button>
+                    <button  class="btn btn-danger" style="margin-left: 10px;" (click)="deleteProject(project.id)" [disabled]="employees.length>0">Delete</button>
                 </div>
             </div>
     </div>
@@ -45,7 +45,9 @@
 
 
 <h2>Employee In Project</h2>
-    <table class="table">
+<h4 *ngIf="employees.length<=0" class="text-danger">No Employees Present in Project</h4>
+
+    <table *ngIf="employees.length>0" class="table">
         <thead>
         <tr>
             <th>Id</th>
@@ -53,7 +55,6 @@
             <th>Last Name</th>
             <th>Department</th>
             <th colspan=2>Actions</th>
-           
         </tr>
         </thead>
         <tbody>

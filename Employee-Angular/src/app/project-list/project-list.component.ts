@@ -19,8 +19,7 @@ export class ProjectListComponent implements OnInit {
   private getProjects(){
     this.projectService.getProjectsList().subscribe({
       next:(data)=>this.projects=data,
-      error:(e)=>console.log(e)
-      
+      error:(e)=>console.log(e)      
     });    
   }
 

@@ -23,72 +23,53 @@ import com.employee.model.employeSql;
 import com.employee.repository.AddressRepository;
 import com.employee.repository.EmployeeRepository;
 import com.employee.repository.ProjectRepository;
+import com.employee.service.EmployeeServiceImpl;
 
 @RestController
 @RequestMapping("/employeeApi")
-public class EmployeeController {
+public class EmployeeController{
 	@Autowired
-	private EmployeeRepository repo;
-	@Autowired
-	private AddressRepository addrrepo;
-	@Autowired
-	private ProjectRepository projectrepo;
+	private EmployeeServiceImpl empService;
 	
 //	@GetMapping("/getAll")
 	@GetMapping
 	public List<Employee> getAllEmployees(){
-		return repo.findAll();
-		
+		return empService.getAllEmployees();		
 	}
 //	@PostMapping(value="/save")
 	@PostMapping
-	public ResponseEntity<Employee>save(@RequestBody Employee employee) {
-		
-		return ResponseEntity.ok(repo.save(employee));
+	public ResponseEntity<Employee>save(@RequestBody Employee employee) {		
+		return empService.save(employee);
 	}
 		
 	@DeleteMapping(value="/delete/{id}")
-	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id) {
-		Long addrid;
-		
-		Employee employee1=repo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee Not Exist id:"+ id));
-		addrid=employee1.getAddress().getId();
-//		repo.deleteByaddress_id(addrid);
-//		addrrepo.deleteById(addrid);
-		repo.deleteById(id);
-		
-		Map<String,Boolean> response=new HashMap<>();
-		response.put("Deleted",Boolean.TRUE);
-		return ResponseEntity.ok(response);
+	public ResponseEntity<Map<String,Boolean>>delete(@PathVariable("id")long id) {		
+		return empService.delete(id);
 	}
 	
 	@GetMapping("/search/{keyword}")
 	public List<Employee> search(@PathVariable("keyword")String keyword){
-		return repo.findByKeyword(keyword);
+		return empService.search(keyword);
 	}
 	
 	@GetMapping("/find/{id}")
-	public Optional<Employee> findEmployee(@PathVariable("id") long id) {
-		return repo.findById(id);
+	public ResponseEntity<Employee> findEmployee(@PathVariable("id") long id) {
+		return empService.findEmployee(id);
 	}
 		 
 	@PutMapping("/update/{id}")
 	public ResponseEntity<Employee> update(@PathVariable Long id,@RequestBody Employee employee) {
-			Employee employee1=repo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Employee Not Exist id:"+ id));
-			employee1.setFirstName(employee.getFirstName());
-			employee1.setLastName(employee.getLastName());
-			employee1.setDepartment(employee.getDepartment());	
 			
-			System.out.println(employee.getAddress().toString());
-			employee1.setAddress(employee.getAddress());
-//			employee1.setProject(employee.getProject());
-//			Employee updatedemp=repo.save(employee1);
-		return ResponseEntity.ok(repo.save(employee1));
+		return empService.update(id, employee);
 	}
 	
 	@GetMapping("/employeeInProject/{id}")
 	public ResponseEntity<List<Employee>> employeeInProject(@PathVariable long id){
-		 List<Employee> n=repo.employeesInProject(id);
-		return ResponseEntity.ok(repo.employeesInProject(id));
+		return empService.employeeInProject(id);
+	}
+	
+	@GetMapping("/employeeNotInProject/{id}")
+	public ResponseEntity<List<Employee>> employeeNotInProject(@PathVariable long id){
+		return empService.employeeNotInProject(id);
 	} 
 }

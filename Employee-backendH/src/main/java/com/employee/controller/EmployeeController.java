@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.employee.exception.ResourceNotFoundException;
-import com.employee.hibernateDao.EmployeeRepo;
+import com.employee.hibernateDao.EmployeeRepoI;
 import com.employee.model.Employee;
 import com.employee.repository.AddressRepository;
 import com.employee.repository.EmployeeRepository;
@@ -34,7 +34,7 @@ public class EmployeeController {
 	private ProjectRepository projectrepo;
 
 	@Autowired
-	private EmployeeRepo empRepo;    
+	private EmployeeRepoI empRepo;    
 
 //	@GetMapping("/getAll")
 	@GetMapping

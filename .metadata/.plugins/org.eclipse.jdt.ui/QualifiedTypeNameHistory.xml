@@ -23,9 +23,7 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="java.util.Map"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="com.employee.exception.ResourceNotFoundException"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.DeleteMapping"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.employee.model.employeSql"/>
     <fullyQualifiedTypeName name="jakarta.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="springfox.documentation.spring.web.plugins.Docket"/>
@@ -53,4 +51,13 @@
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.XADataSourceAutoConfiguration"/>
     <fullyQualifiedTypeName name="com.employee.repository.EmployeeRepository"/>
     <fullyQualifiedTypeName name="org.springframework.context.annotation.Configuration"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.stream.Collectors"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestControllerAdvice"/>
+    <fullyQualifiedTypeName name="com.employee.exception.AlreadyExistException"/>
+    <fullyQualifiedTypeName name="com.employee.exception.ResourceNotFoundException"/>
+    <fullyQualifiedTypeName name="com.employee.exception.NotAbleToSaveException"/>
+    <fullyQualifiedTypeName name="com.employee.service.EmployeeServiceImpl"/>
+    <fullyQualifiedTypeName name="com.employee.exception.ErrorWhileDeletingException"/>
 </qualifiedTypeNameHistroy>

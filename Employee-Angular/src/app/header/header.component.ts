@@ -8,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class HeaderComponent implements OnInit {
- 
+  // itoggle:boolean=false;
 
-
+  // toggleMenu(){
+  //   this.itoggle=this.itoggle;
+  // }
   constructor() { }
 
   ngOnInit(): void {

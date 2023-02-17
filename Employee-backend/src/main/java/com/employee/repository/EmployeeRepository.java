@@ -20,4 +20,7 @@ public interface EmployeeRepository extends JpaRepository<Employee,Long>{
 	
 	@Query(value="SELECT employee.* FROM employee_project, employee WHERE `employee`.`address_id` = `employee_project`.`employee_address_id` AND employee_project.project_id =:id ",nativeQuery=true)
 	public List<Employee> employeesInProject(Long id);
+	
+//	@Query(value="SELECT employee.* FROM employee_project, employee WHERE `employee`.`address_id` = `employee_project`.`employee_address_id` AND employee_project.project_id !=:id ",nativeQuery=true)
+//	public List<Employee> employeesNotInProject(Long id);
 }
