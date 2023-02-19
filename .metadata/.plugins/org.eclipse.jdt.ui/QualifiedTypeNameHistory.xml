@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.hibernate.annotations.Table"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="jakarta.persistence.GeneratedValue"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Column"/>
@@ -34,17 +32,14 @@
     <fullyQualifiedTypeName name="com.employee.model.Admin"/>
     <fullyQualifiedTypeName name="com.employee.repository.AdminRepository"/>
     <fullyQualifiedTypeName name="jakarta.transaction.Transactional"/>
-    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
     <fullyQualifiedTypeName name="org.hibernate.cfg.Configuration"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
     <fullyQualifiedTypeName name="org.hibernate.boot.registry.StandardServiceRegistryBuilder"/>
     <fullyQualifiedTypeName name="org.hibernate.service.ServiceRegistry"/>
     <fullyQualifiedTypeName name="com.employee.model.Employee"/>
-    <fullyQualifiedTypeName name="hibernate.HibernateUtil"/>
     <fullyQualifiedTypeName name="java.io.Serializable"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Query"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="com.employee.hibernateDao.EmployeeRepo"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.EnableWebMvc"/>
     <fullyQualifiedTypeName name="org.hibernate.cfg.Environment"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration"/>
@@ -60,4 +55,9 @@
     <fullyQualifiedTypeName name="com.employee.exception.NotAbleToSaveException"/>
     <fullyQualifiedTypeName name="com.employee.service.EmployeeServiceImpl"/>
     <fullyQualifiedTypeName name="com.employee.exception.ErrorWhileDeletingException"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.EnableAutoConfiguration"/>
+    <fullyQualifiedTypeName name="com.employee.hibernateDao.EmployeeRepo"/>
+    <fullyQualifiedTypeName name="hibernate.HibernateUtil"/>
+    <fullyQualifiedTypeName name="org.hibernate.SessionFactory"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 </qualifiedTypeNameHistroy>
