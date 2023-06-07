@@ -75,7 +75,8 @@ export class PopUpComponent implements OnInit {
   // //   this.employeeService.getEmployeesList().subscribe({
   // //     next:(data)=>this.employees1=data,
   // //     error:(e)=>console.log(e),
-  // //    });
+  // //   
+ });
 
   //    this.dialog.open(this.dialogRef,{data:this.mylist,
   //     panelClass:'fullscreen-dialog',height:'100vw',width:'100%'})
